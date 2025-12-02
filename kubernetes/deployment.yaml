@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shreya-k8s-app-deployment
+  labels:
+    app: shreya-k8s-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: shreya-k8s-app
+  template:
+    metadata:
+      labels:
+        app: shreya-k8s-app
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "5000"
+    spec:
+      containers:
+        - name: shreya-k8s-container
+          image: shreyasv912/shreya-k8s-monitoring-app:v1
+          ports:
+            - containerPort: 5000
+

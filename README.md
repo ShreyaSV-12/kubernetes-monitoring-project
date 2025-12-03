@@ -4,21 +4,6 @@
 This project showcases real-time monitoring of a custom Kubernetes application using Prometheus and Grafana.
 The app — Shreya-K8s-App — exposes metrics that are scraped by Prometheus and visualized in Grafana dashboards.
 
-## 📌 Project Architecture
-
-Kubernetes Cluster
-
-└── Custom App (Python + Flask)
-
-└── Exposes metrics on /metrics
-
-└── Prometheus
-
-└── Scrapes metrics from the App
-
-└── Grafana
-
-└── Visualizes Prometheus metrics via dashboards
 
 ## 🎯 What I Implemented
 
@@ -52,43 +37,50 @@ Kubernetes Cluster
 
 
 ## 🚀 Technologies Used
-  Tool                Purpose
-  
-Kubernetes	     Application Deployment
 
-Prometheus	     Metrics Collection
+- Kubernetes – for container orchestration and managing application deployment
 
-Grafana	         Metrics Visualization
+- Docker – to containerize the application
 
-Docker	         Application Containerization
+- Prometheus – for metrics scraping and monitoring the application performance
 
-Python           Flask	Custom App
+- Grafana – for visualizing real-time metrics with custom dashboards
 
-YAML	           Kubernetes Manifests
+- Node Exporter / Pod Annotations – to expose metrics from the Kubernetes app
+
+- YAML (Kubernetes Manifests) – for deployments, services, configmaps
+
+- Python / Flask App – simple web application running inside Kubernetes
+
+- kubectl CLI – to interact with and manage Kubernetes clusters
+
+- Git & GitHub – version control and project hosting
+
+- VS Code – development and configuration editing
+## 📌 Project Architecture
+
+Kubernetes Cluster
+
+└── Custom App (Python + Flask)
+
+└── Exposes metrics on /metrics
+
+└── Prometheus
+
+└── Scrapes metrics from the App
+
+└── Grafana
+
+└── Visualizes Prometheus metrics via dashboards
+
+<img width="1536" height="1024" alt="project structure" src="https://github.com/user-attachments/assets/8670036a-5e27-4fae-8ac3-8fc381c437e7" />
 
 
-## 📂 Project Structure
-kubernetes-monitoring-project/
-│
-├── app/
-│   ├── app.py
-│   ├── Dockerfile
-│   └── requirements.txt
-│
-├── kubernetes/
-│   ├── deployment.yaml
-│   └── service.yaml
-│
-├── monitoring/
-     ├── prometheus-configmap.yaml
-     ├── prometheus-deployment.yaml
-     ├── prometheus-service.yaml
-     ├── grafana-deployment.yaml
-     └── grafana-service.yaml
 
 
      
 ## ⚙️ How to Deploy (Steps)
+
 * Build and push Docker Image
 docker build -t shreyasv912/shreya-k8s-monitoring-app:v1 .
 docker push shreyasv912/shreya-k8s-monitoring-app:v1
@@ -118,7 +110,8 @@ http://localhost:30007
 <img width="1920" height="1080" alt="prometheus-overview-dashboard" src="https://github.com/user-attachments/assets/395fb7c5-c025-4a51-aa34-af91170cdc48" />
 
 <img width="1920" height="1080" alt="grafana-custom-app-up-metrics" src="https://github.com/user-attachments/assets/d4785c6a-11c5-490a-99a6-ada85a8b17e3" />
-## 🛡 Project Status
+
+🛡 Project Status
 
 🚀 Monitoring is working successfully
 📈 Metrics shown live in Grafana with app name: shreya-k8s-app
@@ -127,18 +120,31 @@ http://localhost:30007
 
 ## 🛠 Why This Project is Used in Real-World
 
-Companies use Kubernetes Monitoring to:
+- Ensures high availability by continuously checking whether pods and services are running
 
-    Goal	                                                Why It Matters
-Track application health	                         Avoid downtime & failures
+- Helps detect failures early to prevent outages and downtime
 
-Detect performance issues early             	     Better user experience
+- Tracks CPU, memory, and network usage to avoid performance bottlenecks
 
-Visualize system activity	                         Faster troubleshooting
+- Supports auto-scaling decisions based on real-time metrics (ex: scale up when traffic spikes)
 
-Monitor scaling & resource usage	                 Cost savings & autoscaling
+- Improves application performance and user experience through continuous optimization
 
-Production SRE/DevOps Observability	               Mission-critical operations
+- Enables faster troubleshooting by providing detailed insights into cluster and app health
+
+- Helps DevOps/SRE teams maintain SLAs like 99.99% uptime
+
+- Provides custom business metrics (ex: success rates, orders per minute, active users)
+
+- Acts as a core part of the DevOps observability stack
+
+- Allows data-driven decision-making for infrastructure and capacity planning
+
+- Enhances security monitoring by detecting unusual traffic or resource consumption
+
+- Integrates seamlessly with Kubernetes ecosystem for cloud-native operations
+
+
 
 
 
